@@ -1,24 +1,14 @@
 package com.eternalcode.core.feature.chat;
 
 import com.eternalcode.annotations.scan.command.DescriptionDocs;
-import com.eternalcode.commons.scheduler.Scheduler;
-import com.eternalcode.core.configuration.ConfigurationManager;
-import com.eternalcode.core.configuration.implementation.PluginConfiguration;
 import com.eternalcode.core.event.EventCaller;
 import com.eternalcode.core.feature.chat.event.ClearChatEvent;
-import com.eternalcode.core.feature.chat.event.DisableChatEvent;
-import com.eternalcode.core.feature.chat.event.EditSlowModeEvent;
-import com.eternalcode.core.feature.chat.event.EnableChatEvent;
 import com.eternalcode.core.injector.annotations.Inject;
 import com.eternalcode.core.notice.NoticeService;
-import com.eternalcode.core.util.DurationUtil;
-import com.eternalcode.core.viewer.Viewer;
-import dev.rollczi.litecommands.annotations.argument.Arg;
 import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Sender;
 import dev.rollczi.litecommands.annotations.execute.Execute;
 import dev.rollczi.litecommands.annotations.permission.Permission;
-import java.time.Duration;
 import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
 
@@ -33,26 +23,17 @@ class ChatCommand {
     private final EventCaller eventCaller;
     private final Server server;
 
-    private final PluginConfiguration config;
-    private final ConfigurationManager configManager;
-    private final Scheduler scheduler;
-
     @Inject
     ChatCommand(
         NoticeService noticeService,
         ChatSettings chatSettings,
-        EventCaller eventCaller, Server server,
-        PluginConfiguration config,
-        ConfigurationManager configManager, Scheduler scheduler
+        EventCaller eventCaller,
+        Server server
     ) {
         this.noticeService = noticeService;
         this.chatSettings = chatSettings;
         this.eventCaller = eventCaller;
         this.server = server;
-
-        this.config = config;
-        this.configManager = configManager;
-        this.scheduler = scheduler;
     }
 
     @Execute(name = "clear", aliases = "cc")
@@ -76,94 +57,4 @@ class ChatCommand {
             .onlinePlayers()
             .send();
     }
-
-    @Execute(name = "on")
-    @DescriptionDocs(description = "Enables chat")
-    void enable(@Sender Viewer viewer, @Sender CommandSender sender) {
-        if (this.chatSettings.chatEnabled()) {
-            this.noticeService.viewer(viewer, translation -> translation.chat().chatAlreadyEnabled());
-            return;
-        }
-
-        EnableChatEvent event = this.eventCaller.callEvent(new EnableChatEvent(sender));
-
-        if (event.isCancelled()) {
-            return;
-        }
-
-        this.chatSettings.chatEnabled(true);
-
-        this.noticeService.create()
-            .notice(translation -> translation.chat().chatEnabled())
-            .placeholder("{PLAYER}", sender.getName())
-            .onlinePlayers()
-            .send();
-    }
-
-    @Execute(name = "off")
-    @DescriptionDocs(description = "Disables chat")
-    void disable(@Sender Viewer viewer, @Sender CommandSender sender) {
-        if (!this.chatSettings.chatEnabled()) {
-            this.noticeService.viewer(viewer, translation -> translation.chat().chatAlreadyDisabled());
-            return;
-        }
-
-        DisableChatEvent event = this.eventCaller.callEvent(new DisableChatEvent(sender));
-
-        if (event.isCancelled()) {
-            return;
-        }
-
-        this.chatSettings.chatEnabled(false);
-
-        this.noticeService.create()
-            .notice(translation -> translation.chat().chatDisabled())
-            .placeholder("{PLAYER}", sender.getName())
-            .onlinePlayers()
-            .send();
-    }
-
-    @Execute(name = "slowmode")
-    @DescriptionDocs(description = "Sets slowmode for chat", arguments = "<time>")
-    void slowmode(@Sender Viewer viewer, @Arg Duration duration) {
-        if (duration.isNegative()) {
-            this.noticeService.viewer(viewer, translation -> translation.argument().numberBiggerThanOrEqualZero());
-            return;
-        }
-
-        Duration currentDelay = this.chatSettings.chatDelay();
-        EditSlowModeEvent event =
-            this.eventCaller.callEvent(new EditSlowModeEvent(currentDelay, duration, viewer.getUniqueId()));
-
-        if (event.isCancelled()) {
-            return;
-        }
-
-        this.chatSettings.chatDelay(duration);
-        this.scheduler.runAsync(() -> this.configManager.save(this.config));
-
-        if (duration.isZero()) {
-            this.noticeService.create()
-                .notice(translation -> translation.chat().slowModeDisabled())
-                .placeholder("{PLAYER}", viewer.getName())
-                .onlinePlayers()
-                .send();
-
-            return;
-        }
-
-        this.noticeService.create()
-            .notice(translation -> translation.chat().slowModeSet())
-            .placeholder("{SLOWMODE}", DurationUtil.format(duration, true))
-            .onlinePlayers()
-            .send();
-    }
-
-    @Execute(name = "slowmode 0")
-    @DescriptionDocs(description = "Disable SlowMode for chat")
-    void slowmodeOff(@Sender Viewer viewer) {
-        Duration noSlowMode = Duration.ZERO;
-        this.slowmode(viewer, noSlowMode);
-    }
 }
-

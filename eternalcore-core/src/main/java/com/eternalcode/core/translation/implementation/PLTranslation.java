@@ -9,9 +9,7 @@ import com.eternalcode.core.feature.container.messages.PLContainerMessages;
 import com.eternalcode.core.feature.repair.messages.PLRepairMessages;
 import com.eternalcode.core.litecommand.argument.messages.PLArgumentMessages;
 import com.eternalcode.core.configuration.contextual.ConfigItem;
-import com.eternalcode.core.feature.adminchat.messages.PLAdminChatMessages;
 import com.eternalcode.core.feature.afk.messages.PLAfkMessages;
-import com.eternalcode.core.feature.automessage.messages.PLAutoMessageMessages;
 import com.eternalcode.core.feature.broadcast.messages.PLBroadcastMessages;
 import com.eternalcode.core.feature.burn.messages.PLBurnMessages;
 import com.eternalcode.core.feature.butcher.messages.PLButcherMessages;
@@ -31,7 +29,6 @@ import com.eternalcode.core.feature.gamemode.messages.PLGameModeMessages;
 import com.eternalcode.core.feature.give.messages.PLGiveMessages;
 import com.eternalcode.core.feature.godmode.messages.PLGodModeMessages;
 import com.eternalcode.core.feature.heal.messages.PLHealMessages;
-import com.eternalcode.core.feature.helpop.messages.PLHelpOpMessages;
 import com.eternalcode.core.feature.home.messages.PLHomeMessages;
 import com.eternalcode.core.feature.ignore.messages.PLIgnoreMessages;
 import com.eternalcode.core.feature.itemedit.messages.PLItemEditMessages;
@@ -39,7 +36,6 @@ import com.eternalcode.core.feature.jail.messages.PLJailMessages;
 import com.eternalcode.core.feature.joinmessage.messages.PLJoinMessage;
 import com.eternalcode.core.feature.kill.messages.PLKillMessages;
 import com.eternalcode.core.feature.motd.messages.PLMotdMessages;
-import com.eternalcode.core.feature.msg.messages.PLMsgMessages;
 import com.eternalcode.core.feature.near.messages.PLNearMessages;
 import com.eternalcode.core.feature.onlineplayers.messages.PLOnlineMessages;
 import com.eternalcode.core.feature.ping.PLPingMessages;
@@ -155,17 +151,8 @@ public class PLTranslation extends AbstractTranslation {
     @Comment("# Czat")
     public PLChatMessages chat = new PLChatMessages();
 
-    @Comment("# Czat administracji")
-    public PLAdminChatMessages adminChat = new PLAdminChatMessages();
-
-    @Comment("# Wiadomości prywatne")
-    public PLMsgMessages msg = new PLMsgMessages();
-
     @Comment("# Broadcast")
     public PLBroadcastMessages broadcast = new PLBroadcastMessages();
-
-    @Comment("# Automatyczne wiadomości")
-    public PLAutoMessageMessages autoMessage = new PLAutoMessageMessages();
 
     @Comment("# Wiadomość dołączenia do serwera")
     public PLJoinMessage join = new PLJoinMessage();
@@ -304,9 +291,6 @@ public class PLTranslation extends AbstractTranslation {
 
     @Comment("# Sudo")
     public PLSudoMessages sudo = new PLSudoMessages();
-
-    @Comment("# Czat pomocy")
-    public PLHelpOpMessages helpOp = new PLHelpOpMessages();
 
     @Comment("# Elder Guardian")
     public PLElderGuardianMessages elderGuardian = new PLElderGuardianMessages();

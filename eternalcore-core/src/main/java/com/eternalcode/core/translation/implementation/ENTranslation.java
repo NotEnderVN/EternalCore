@@ -1,8 +1,6 @@
 package com.eternalcode.core.translation.implementation;
 
-import com.eternalcode.core.feature.adminchat.messages.ENAdminChatMessages;
 import com.eternalcode.core.feature.afk.messages.ENAfkMessages;
-import com.eternalcode.core.feature.automessage.messages.ENAutoMessageMessages;
 import com.eternalcode.core.feature.back.messages.ENBackMessages;
 import com.eternalcode.core.feature.broadcast.messages.ENBroadcastMessages;
 import com.eternalcode.core.feature.burn.messages.ENBurnMessages;
@@ -23,7 +21,6 @@ import com.eternalcode.core.feature.gamemode.messages.ENGameModeMessages;
 import com.eternalcode.core.feature.give.messages.ENGiveMessages;
 import com.eternalcode.core.feature.godmode.messages.ENGodModeMessages;
 import com.eternalcode.core.feature.heal.messages.ENHealMessages;
-import com.eternalcode.core.feature.helpop.messages.ENHelpOpMessages;
 import com.eternalcode.core.feature.home.messages.ENHomeMessages;
 import com.eternalcode.core.feature.ignore.messages.ENIgnoreMessages;
 import com.eternalcode.core.feature.itemedit.messages.ENItemEditMessages;
@@ -31,7 +28,6 @@ import com.eternalcode.core.feature.jail.messages.ENJailMessages;
 import com.eternalcode.core.feature.joinmessage.messages.ENJoinMessage;
 import com.eternalcode.core.feature.kill.messages.ENKillMessages;
 import com.eternalcode.core.feature.motd.messages.ENMotdMessages;
-import com.eternalcode.core.feature.msg.messages.ENMsgMessages;
 import com.eternalcode.core.feature.near.messages.ENNearMessages;
 import com.eternalcode.core.feature.onlineplayers.messages.ENOnlineMessages;
 import com.eternalcode.core.feature.ping.ENPingMessages;
@@ -151,17 +147,8 @@ public class ENTranslation extends AbstractTranslation {
     @Comment("# Chat")
     public ENChatMessages chat = new ENChatMessages();
 
-    @Comment("# Admin chat")
-    public ENAdminChatMessages adminChat = new ENAdminChatMessages();
-
-    @Comment("# Private messages")
-    public ENMsgMessages msg = new ENMsgMessages();
-
     @Comment("# Broadcast")
     public ENBroadcastMessages broadcast = new ENBroadcastMessages();
-
-    @Comment("# Auto messages")
-    public ENAutoMessageMessages autoMessage = new ENAutoMessageMessages();
 
     @Comment("# Join message")
     public ENJoinMessage join = new ENJoinMessage();
@@ -300,9 +287,6 @@ public class ENTranslation extends AbstractTranslation {
 
     @Comment("# Sudo")
     public ENSudoMessages sudo = new ENSudoMessages();
-
-    @Comment("# Help chat")
-    public ENHelpOpMessages helpOp = new ENHelpOpMessages();
 
     @Comment("# Elder Guardian")
     public ENElderGuardianMessages elderGuardian = new ENElderGuardianMessages();

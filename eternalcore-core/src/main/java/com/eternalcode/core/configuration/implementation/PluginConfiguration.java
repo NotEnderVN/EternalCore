@@ -9,8 +9,6 @@ import com.eternalcode.core.util.date.DateConfig;
 import com.eternalcode.core.util.date.DateSettings;
 import com.eternalcode.core.feature.afk.AfkConfig;
 import com.eternalcode.core.feature.afk.AfkSettings;
-import com.eternalcode.core.feature.automessage.AutoMessageConfig;
-import com.eternalcode.core.feature.automessage.AutoMessageSettings;
 import com.eternalcode.core.feature.back.BackConfig;
 import com.eternalcode.core.feature.back.BackSettings;
 import com.eternalcode.core.feature.broadcast.BroadcastConfig;
@@ -25,8 +23,6 @@ import com.eternalcode.core.feature.enchant.EnchantConfig;
 import com.eternalcode.core.feature.enchant.EnchantSettings;
 import com.eternalcode.core.feature.give.GiveConfig;
 import com.eternalcode.core.feature.give.GiveSettings;
-import com.eternalcode.core.feature.helpop.HelpOpConfig;
-import com.eternalcode.core.feature.helpop.HelpOpSettings;
 import com.eternalcode.core.feature.home.HomesConfig;
 import com.eternalcode.core.feature.home.HomesSettings;
 import com.eternalcode.core.feature.jail.JailConfig;
@@ -37,10 +33,10 @@ import com.eternalcode.core.feature.randomteleport.RandomTeleportConfig;
 import com.eternalcode.core.feature.randomteleport.RandomTeleportSettings;
 import com.eternalcode.core.feature.repair.RepairConfig;
 import com.eternalcode.core.feature.repair.RepairSettings;
-import com.eternalcode.core.feature.serverlinks.ServerLinksConfig;
-import com.eternalcode.core.feature.serverlinks.ServerLinksSettings;
 import com.eternalcode.core.feature.spawn.SpawnJoinConfig;
 import com.eternalcode.core.feature.spawn.SpawnJoinSettings;
+import com.eternalcode.core.feature.joinmessage.JoinQuitConfig;
+import com.eternalcode.core.feature.joinmessage.JoinQuitSettings;
 import com.eternalcode.core.feature.teleportrandomplayer.TeleportToRandomPlayerConfig;
 import com.eternalcode.core.feature.teleportrandomplayer.TeleportToRandomPlayerSettings;
 import com.eternalcode.core.feature.teleportrequest.TeleportRequestConfig;
@@ -156,12 +152,6 @@ public class PluginConfiguration extends AbstractConfigurationFile {
     @Comment("# Broadcast Configuration")
     BroadcastConfig broadcast = new BroadcastConfig();
 
-    @Bean(proxied = HelpOpSettings.class)
-    @Comment("")
-    @Comment("# HelpOp Configuration")
-    @Comment("# Settings for the help operator system")
-    HelpOpConfig helpOp = new HelpOpConfig();
-
     @Bean(proxied = RepairSettings.class)
     @Comment("")
     @Comment("# Repair Configuration")
@@ -208,12 +198,6 @@ public class PluginConfiguration extends AbstractConfigurationFile {
     @Comment("# Settings for entity removal functionality")
     ButcherConfig butcher = new ButcherConfig();
 
-    @Bean(proxied = AutoMessageSettings.class)
-    @Comment("")
-    @Comment("# Auto Message Configuration")
-    @Comment("# Settings for automatic message broadcasting")
-    AutoMessageConfig autoMessage = new AutoMessageConfig();
-
     @Bean(proxied = JailSettings.class)
     @Comment("")
     @Comment("# Jail Configuration")
@@ -226,12 +210,6 @@ public class PluginConfiguration extends AbstractConfigurationFile {
     @Comment("# Settings for lightning strike effects")
     LightningConfig lightning = new LightningConfig();
 
-    @Bean(proxied = ServerLinksSettings.class)
-    @Comment("")
-    @Comment("# Server Links Configuration")
-    @Comment("# Settings for server link management")
-    ServerLinksConfig serverLinks = new ServerLinksConfig();
-
     @Bean(proxied = VanishSettings.class)
     @Comment("")
     @Comment("# Vanish Configuration")
@@ -243,6 +221,12 @@ public class PluginConfiguration extends AbstractConfigurationFile {
     @Comment("# Back Configuration")
     @Comment("# Settings for the /back command functionality")
     BackConfig back = new BackConfig();
+
+    @Bean(proxied = JoinQuitSettings.class)
+    @Comment("")
+    @Comment("# Join & Quit Messages Configuration")
+    @Comment("# Settings for permission-based join and quit messages")
+    JoinQuitConfig joinQuit = new JoinQuitConfig();
 
     @Override
     public File getConfigFile(File dataFolder) {

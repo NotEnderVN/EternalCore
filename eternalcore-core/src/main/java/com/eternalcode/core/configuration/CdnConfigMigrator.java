@@ -20,7 +20,6 @@ class CdnConfigMigrator {
         "gameModeShortCuts",
         "commands",
         "homes.maxHomes",
-        "autoMessage.messages",
         "warp.warpInventory.items",
         "event.deathMessageByDamageCause"
     );

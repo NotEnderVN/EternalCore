@@ -7,9 +7,7 @@ import com.eternalcode.core.feature.clear.messages.ClearMessages;
 import com.eternalcode.core.feature.container.messages.ContainerMessages;
 import com.eternalcode.core.feature.repair.messages.RepairMessages;
 import com.eternalcode.core.litecommand.argument.messages.ArgumentMessages;
-import com.eternalcode.core.feature.adminchat.messages.AdminChatMessages;
 import com.eternalcode.core.feature.afk.messages.AfkMessages;
-import com.eternalcode.core.feature.automessage.messages.AutoMessageMessages;
 import com.eternalcode.core.feature.broadcast.messages.BroadcastMessages;
 import com.eternalcode.core.feature.burn.messages.BurnMessages;
 import com.eternalcode.core.feature.butcher.messages.ButcherMessages;
@@ -29,7 +27,6 @@ import com.eternalcode.core.feature.gamemode.messages.GameModeMessages;
 import com.eternalcode.core.feature.give.messages.GiveMessages;
 import com.eternalcode.core.feature.godmode.messages.GodModeMessages;
 import com.eternalcode.core.feature.heal.messages.HealMessages;
-import com.eternalcode.core.feature.helpop.messages.HelpOpSection;
 import com.eternalcode.core.feature.home.messages.HomeMessages;
 import com.eternalcode.core.feature.ignore.messages.IgnoreMessages;
 import com.eternalcode.core.feature.itemedit.messages.ItemEditMessages;
@@ -37,7 +34,6 @@ import com.eternalcode.core.feature.jail.messages.JailMessages;
 import com.eternalcode.core.feature.joinmessage.messages.JoinMessage;
 import com.eternalcode.core.feature.kill.messages.KillMessages;
 import com.eternalcode.core.feature.motd.messages.MotdMessages;
-import com.eternalcode.core.feature.msg.messages.MsgMessages;
 import com.eternalcode.core.feature.near.messages.NearMessages;
 import com.eternalcode.core.feature.onlineplayers.messages.OnlineMessages;
 import com.eternalcode.core.feature.ping.PingMessages;
@@ -78,13 +74,7 @@ public interface Translation {
 
     ChatMessages chat();
 
-    AdminChatMessages adminChat();
-
-    MsgMessages msg();
-
     BroadcastMessages broadcast();
-
-    AutoMessageMessages autoMessage();
 
     JoinMessage join();
 
@@ -177,8 +167,6 @@ public interface Translation {
     JailMessages jailSection();
 
     SudoMessages sudo();
-
-    HelpOpSection helpOp();
 
     ElderGuardianMessages elderGuardian();
 

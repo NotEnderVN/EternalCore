@@ -11,7 +11,6 @@ import com.eternalcode.example.feature.ignore.ApiIgnoreCommand;
 import com.eternalcode.example.feature.ignore.ApiIgnoreListener;
 import com.eternalcode.example.feature.jail.ApiJailCommand;
 import com.eternalcode.example.feature.jail.ApiJailListener;
-import com.eternalcode.example.feature.privatechat.ApiPrivateChatListener;
 import com.eternalcode.example.feature.randomteleport.ApiRandomTeleportCommand;
 import com.eternalcode.example.feature.randomteleport.ApiRandomTeleportListener;
 import com.eternalcode.example.feature.spawn.ApiSpawnCommand;
@@ -58,7 +57,6 @@ public class EternalCoreApiExamplePlugin extends JavaPlugin {
             new ApiAfkListener(),
             new CatBoyListener(provide.getCatboyService()),
             new ApiRandomTeleportListener(provide.getRandomTeleportService()),
-            new ApiPrivateChatListener(server),
             new ApiHomeListener(server),
             new ApiJailListener(server),
             new ApiIgnoreListener(),

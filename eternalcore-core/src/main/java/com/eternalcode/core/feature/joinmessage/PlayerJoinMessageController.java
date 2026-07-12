@@ -5,6 +5,7 @@ import com.eternalcode.core.feature.vanish.VanishService;
 import com.eternalcode.core.injector.annotations.Inject;
 import com.eternalcode.core.injector.annotations.component.Controller;
 import com.eternalcode.core.notice.NoticeService;
+import com.eternalcode.multification.notice.Notice;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,11 +18,13 @@ class PlayerJoinMessageController implements Listener {
 
     private final NoticeService noticeService;
     private final VanishService vanishService;
+    private final JoinQuitSettings joinQuitSettings;
 
     @Inject
-    PlayerJoinMessageController(NoticeService noticeService, VanishService vanishService) {
+    PlayerJoinMessageController(NoticeService noticeService, VanishService vanishService, JoinQuitSettings joinQuitSettings) {
         this.noticeService = noticeService;
         this.vanishService = vanishService;
+        this.joinQuitSettings = joinQuitSettings;
     }
 
     @EventHandler
@@ -34,6 +37,17 @@ class PlayerJoinMessageController implements Listener {
         }
 
         event.setJoinMessage(EMPTY_MESSAGE);
+
+        for (JoinQuitMessageEntry entry : this.joinQuitSettings.joinMessages()) {
+            if (player.hasPermission(entry.permission())) {
+                this.noticeService.create()
+                    .notice(translation -> Notice.chat(entry.message()))
+                    .placeholder("{PLAYER}", player.getName())
+                    .onlinePlayers()
+                    .sendAsync();
+                return;
+            }
+        }
 
         boolean firstTime = !player.hasPlayedBefore();
 

@@ -24,16 +24,29 @@ class CatboyCommand {
     }
 
     @Execute
+    @DescriptionDocs(description = "Mark yourself as a catboy.")
+    void executeCatboySelf(@Sender Player player) {
+        this.switchCatboy(player, Optional.empty());
+    }
+
+    @Execute
     @DescriptionDocs(description = "Mark yourself as a catboy.", arguments = "[type]")
-    void executeCatboySelf(@Sender Player player, @Arg("type") Optional<Cat.Type> type) {
-        this.switchCatboy(player, type);
+    void executeCatboySelfType(@Sender Player player, @Arg("type") Cat.Type type) {
+        this.switchCatboy(player, Optional.of(type));
+    }
+
+    @Execute
+    @DescriptionDocs(description = "Mark a player as a catboy.", arguments = "<player>")
+    @Permission("eternalcore.catboy.others")
+    void executeCatboyOther(@Arg("target") Player target) {
+        this.switchCatboy(target, Optional.empty());
     }
 
     @Execute
     @DescriptionDocs(description = "Mark a player as a catboy.", arguments = "<player> [type]")
     @Permission("eternalcore.catboy.others")
-    void executeCatboy(@Arg("target") Player target, @Arg("type") Optional<Cat.Type> type) {
-        this.switchCatboy(target, type);
+    void executeCatboyOtherType(@Arg("target") Player target, @Arg("type") Cat.Type type) {
+        this.switchCatboy(target, Optional.of(type));
     }
 
     private void switchCatboy(Player target, Optional<Cat.Type> type) {

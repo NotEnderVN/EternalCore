@@ -47,12 +47,12 @@ Get the latest development builds from [our website](https://eternalcode.pl/buil
 - ✅ Slot Bypass `(eternalcore.bypass.slot)`
 - 💤 AFK System
 - 💬 **Chat & Interaction**:
-  - Admin Chat, Auto Messages, Chat On/Off, Slow Mode
-  - Private Messaging (`/msg`, `/reply`, `/socialspy`, `/ignore`)
-  - `/helpop` for player support
+  - ~~Admin Chat~~, ~~Auto Messages~~, ~~Chat On/Off~~, ~~Slow Mode~~
+  - ~~Private Messaging (`/msg`, `/reply`, `/socialspy`)~~, `/ignore`
+  - ~~/helpop for player support~~
   - Advanced Notification System (Title, Actionbar, BossBar, etc.)
   - Custom Join, Quit, and Death messages
-  - <details><summary>Server links feature (Click to see how it works)</summary><img src="assets/server-links-showcase.gif" alt="Server Links Showcase"></details>
+  - ~~<details><summary>Server links feature (Click to see how it works)</summary><img src="assets/server-links-showcase.gif" alt="Server Links Showcase"></details>~~
 - 🌌 **Teleportation & Travel**:
   - Complete Home, Warp, and Spawn System
   - Random Teleport (RTP) for wild exploration
