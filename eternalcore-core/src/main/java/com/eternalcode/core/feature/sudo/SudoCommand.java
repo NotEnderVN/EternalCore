@@ -46,8 +46,20 @@ class SudoCommand {
     @Permission("eternalcore.sudo.player")
     @DescriptionDocs(description = "Execute command as player", arguments = "<player> <command>")
     void player(@Sender Viewer viewer, @Arg Player target, @Join String command) {
-        this.server.dispatchCommand(target, command);
+        if (command.startsWith("/")) {
+            this.server.dispatchCommand(target, command.substring(1));
+        } else {
+            this.server.dispatchCommand(target, command);
+        }
         this.sendSudoSpy(viewer, target, command);
+    }
+
+    @Execute(name = "-chat")
+    @Permission("eternalcore.sudo.chat")
+    @DescriptionDocs(description = "Force player to send a chat message", arguments = "<player> <message>")
+    void chat(@Sender Viewer viewer, @Arg Player target, @Join String message) {
+        target.chat(message);
+        this.sendSudoSpy(viewer, target, message);
     }
 
     private void sendSudoSpy(Viewer viewer, CommandSender target, String command) {

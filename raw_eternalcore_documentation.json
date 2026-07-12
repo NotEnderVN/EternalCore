@@ -1,32 +1,6 @@
 {
   "commands": [
     {
-      "name": "adminchat ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.adminchat"
-      ],
-      "descriptions": [
-        "Sends a message to all staff members with admin chat permissions."
-      ],
-      "arguments": [
-        "<message>"
-      ]
-    },
-    {
-      "name": "adminchat ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.adminchat"
-      ],
-      "descriptions": [
-        "Toggles persistent admin chat mode. When enabled, all your messages will be sent to admin chat."
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
       "name": "afk ",
       "aliases": [],
       "permissions": [
@@ -63,19 +37,6 @@
       ],
       "arguments": [
         "<player>"
-      ]
-    },
-    {
-      "name": "automessage ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.automessage"
-      ],
-      "descriptions": [
-        "Toggles the display of automatic messages."
-      ],
-      "arguments": [
-        ""
       ]
     },
     {
@@ -297,6 +258,33 @@
         "Mark yourself as a catboy."
       ],
       "arguments": [
+        ""
+      ]
+    },
+    {
+      "name": "catboy ",
+      "aliases": [],
+      "permissions": [
+        "eternalcore.catboy",
+        "eternalcore.catboy.others"
+      ],
+      "descriptions": [
+        "Mark a player as a catboy."
+      ],
+      "arguments": [
+        "<player>"
+      ]
+    },
+    {
+      "name": "catboy ",
+      "aliases": [],
+      "permissions": [
+        "eternalcore.catboy"
+      ],
+      "descriptions": [
+        "Mark yourself as a catboy."
+      ],
+      "arguments": [
         "[type]"
       ]
     },
@@ -324,58 +312,6 @@
       ],
       "descriptions": [
         "Clears chat"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
-      "name": "chat off",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.chat"
-      ],
-      "descriptions": [
-        "Disables chat"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
-      "name": "chat on",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.chat"
-      ],
-      "descriptions": [
-        "Enables chat"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
-      "name": "chat slowmode",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.chat"
-      ],
-      "descriptions": [
-        "Sets slowmode for chat"
-      ],
-      "arguments": [
-        "<time>"
-      ]
-    },
-    {
-      "name": "chat slowmode 0",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.chat"
-      ],
-      "descriptions": [
-        "Disable SlowMode for chat"
       ],
       "arguments": [
         ""
@@ -531,10 +467,10 @@
       "name": "enchant ",
       "aliases": [],
       "permissions": [
-        "eternalcore.enchant"
+        "eternalcore.enchant.other"
       ],
       "descriptions": [
-        "Enchants item in hand"
+        "Enchants the item held by the specified player"
       ],
       "arguments": [
         "<enchantment> <level> <player>"
@@ -881,19 +817,6 @@
       ]
     },
     {
-      "name": "helpop ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.helpop"
-      ],
-      "descriptions": [
-        "Send helpop message to all administrator with eternalcore.helpop.spy permission"
-      ],
-      "arguments": [
-        "<message>"
-      ]
-    },
-    {
       "name": "home ",
       "aliases": [],
       "permissions": [
@@ -969,34 +892,6 @@
       ],
       "arguments": [
         "<user> <home> [location]"
-      ]
-    },
-    {
-      "name": "ignore ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.ignore"
-      ],
-      "descriptions": [
-        "Ignore specified player"
-      ],
-      "arguments": [
-        "<player>"
-      ]
-    },
-    {
-      "name": "ignore -all",
-      "aliases": [
-        "ignore, *"
-      ],
-      "permissions": [
-        "eternalcore.ignore"
-      ],
-      "descriptions": [
-        "Ignore all players"
-      ],
-      "arguments": [
-        ""
       ]
     },
     {
@@ -1323,92 +1218,6 @@
       ]
     },
     {
-      "name": "msg",
-      "aliases": [
-        "message",
-        "m",
-        "whisper",
-        "tell",
-        "t"
-      ],
-      "permissions": [
-        "eternalcore.msg"
-      ],
-      "descriptions": [
-        "Send private message to specified player"
-      ],
-      "arguments": [
-        "<player> <message>"
-      ]
-    },
-    {
-      "name": "msgtoggle ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.msgtoggle"
-      ],
-      "descriptions": [
-        "Toggle receiving private messages"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
-      "name": "msgtoggle ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.msgtoggle",
-        "eternalcore.msgtoggle.other"
-      ],
-      "descriptions": [
-        "Switch receiving private messages for other player"
-      ],
-      "arguments": [
-        "<player>"
-      ]
-    },
-    {
-      "name": "msgtoggle ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.msgtoggle",
-        "eternalcore.msgtoggle.other"
-      ],
-      "descriptions": [
-        "Switch receiving private messages for other player"
-      ],
-      "arguments": [
-        "<player>  <toggle>"
-      ]
-    },
-    {
-      "name": "msgtoggle disable",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.msgtoggle"
-      ],
-      "descriptions": [
-        "Disable receiving private messages"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
-      "name": "msgtoggle enable",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.msgtoggle"
-      ],
-      "descriptions": [
-        "Enable receiving private messages"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
       "name": "near ",
       "aliases": [],
       "permissions": [
@@ -1601,21 +1410,6 @@
       ]
     },
     {
-      "name": "reply",
-      "aliases": [
-        "r"
-      ],
-      "permissions": [
-        "eternalcore.reply"
-      ],
-      "descriptions": [
-        "Reply to last private message"
-      ],
-      "arguments": [
-        "<message>"
-      ]
-    },
-    {
       "name": "rtp ",
       "aliases": [],
       "permissions": [
@@ -1768,21 +1562,6 @@
       ]
     },
     {
-      "name": "socialspy",
-      "aliases": [
-        "spy"
-      ],
-      "permissions": [
-        "eternalcore.spy"
-      ],
-      "descriptions": [
-        "Enable or disable social spy"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
       "name": "spawn ",
       "aliases": [],
       "permissions": [
@@ -1897,6 +1676,19 @@
       ],
       "arguments": [
         "<player> <command>"
+      ]
+    },
+    {
+      "name": "sudo -chat",
+      "aliases": [],
+      "permissions": [
+        "eternalcore.sudo.chat"
+      ],
+      "descriptions": [
+        "Force player to send a chat message"
+      ],
+      "arguments": [
+        "<player> <message>"
       ]
     },
     {
@@ -2402,34 +2194,6 @@
       "arguments": []
     },
     {
-      "name": "unignore ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.ignore"
-      ],
-      "descriptions": [
-        "Unignore specified player"
-      ],
-      "arguments": [
-        "<player>"
-      ]
-    },
-    {
-      "name": "unignore -all",
-      "aliases": [
-        "unignore, *"
-      ],
-      "permissions": [
-        "eternalcore.ignore"
-      ],
-      "descriptions": [
-        "Unignore all players"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
       "name": "vanish ",
       "aliases": [],
       "permissions": [
@@ -2542,24 +2306,6 @@
   ],
   "permissions": [
     {
-      "name": "Admin Chat",
-      "permissions": [
-        "eternalcore.adminchat"
-      ],
-      "descriptions": [
-        "Allows the player to use admin chat commands and functionality."
-      ]
-    },
-    {
-      "name": "Admin Chat See",
-      "permissions": [
-        "eternalcore.adminchat.see"
-      ],
-      "descriptions": [
-        "Allows the player to see messages sent in admin chat by other players."
-      ]
-    },
-    {
       "name": "Afk bypass",
       "permissions": [
         "eternalcore.afk.bypass"
@@ -2584,25 +2330,6 @@
       ],
       "descriptions": [
         "Bypass replaced unknown command message, and keep the original message."
-      ]
-    },
-    {
-      "name": "Bypass chat slowmode or disabled chat",
-      "permissions": [
-        "eternalcore.chat.noslowmode",
-        "eternalcore.chat.bypass"
-      ],
-      "descriptions": [
-        "Allows you to bypass chat restrictions such as slowmode or disabled chat."
-      ]
-    },
-    {
-      "name": "HelpOp Spy",
-      "permissions": [
-        "eternalcore.helpop.spy"
-      ],
-      "descriptions": [
-        "Allows player to see helpop messages sent by other players"
       ]
     },
     {

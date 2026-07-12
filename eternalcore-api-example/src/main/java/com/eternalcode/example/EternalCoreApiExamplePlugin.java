@@ -7,7 +7,6 @@ import com.eternalcode.example.feature.afk.ApiAfkListener;
 import com.eternalcode.example.feature.catboy.CatBoyListener;
 import com.eternalcode.example.feature.home.ApiHomeCommand;
 import com.eternalcode.example.feature.home.ApiHomeListener;
-import com.eternalcode.example.feature.ignore.ApiIgnoreCommand;
 import com.eternalcode.example.feature.ignore.ApiIgnoreListener;
 import com.eternalcode.example.feature.jail.ApiJailCommand;
 import com.eternalcode.example.feature.jail.ApiJailListener;
@@ -44,7 +43,6 @@ public class EternalCoreApiExamplePlugin extends JavaPlugin {
 
             .commands(
                 new ApiAfkCommand(provide.getAfkService()),
-                new ApiIgnoreCommand(provide.getIgnoreService()),
                 new ApiJailCommand(provide.getJailService()),
                 new ApiRandomTeleportCommand(provide.getRandomTeleportService()),
                 new ApiSpawnCommand(provide.getSpawnService()),

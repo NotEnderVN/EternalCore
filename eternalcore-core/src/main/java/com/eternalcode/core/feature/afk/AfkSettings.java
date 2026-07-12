@@ -14,4 +14,5 @@ public interface AfkSettings {
 
     boolean kickOnAfk();
 
+    boolean afkSelfMessagesOnly();
 }

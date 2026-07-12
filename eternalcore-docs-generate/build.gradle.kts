@@ -33,3 +33,10 @@ dependencies {
     runtimeOnly("us.dynmap:DynmapCoreAPI:${Versions.DYNMAP_API}")
     runtimeOnly("fr.skytasul:glowingentities:${Versions.GLOWING_ENTITIES}")
 }
+
+tasks.register<JavaExec>("generateDocs") {
+    mainClass.set("com.eternalcode.annotations.scan.GenerateDocs")
+    classpath = sourceSets["main"].runtimeClasspath
+    // Set the working directory to the project root directory
+    workingDir = rootProject.projectDir
+}

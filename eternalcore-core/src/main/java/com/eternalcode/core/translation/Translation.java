@@ -28,7 +28,6 @@ import com.eternalcode.core.feature.give.messages.GiveMessages;
 import com.eternalcode.core.feature.godmode.messages.GodModeMessages;
 import com.eternalcode.core.feature.heal.messages.HealMessages;
 import com.eternalcode.core.feature.home.messages.HomeMessages;
-import com.eternalcode.core.feature.ignore.messages.IgnoreMessages;
 import com.eternalcode.core.feature.itemedit.messages.ItemEditMessages;
 import com.eternalcode.core.feature.jail.messages.JailMessages;
 import com.eternalcode.core.feature.joinmessage.messages.JoinMessage;
@@ -85,8 +84,6 @@ public interface Translation {
     DeathMessages deathMessage();
 
     AfkMessages afk();
-
-    IgnoreMessages ignore();
 
     TeleportMessages teleport();
 

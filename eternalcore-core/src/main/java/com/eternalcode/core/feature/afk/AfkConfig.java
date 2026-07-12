@@ -30,4 +30,7 @@ public class AfkConfig extends OkaeriConfig implements AfkSettings {
 
     @Comment("# Should a player be kicked from the game when marked as AFK?")
     public boolean kickOnAfk = false;
+
+    @Comment("# Should AFK messages only be visible to the player who went AFK?")
+    public boolean afkSelfMessagesOnly = false;
 }

@@ -22,7 +22,6 @@ import com.eternalcode.core.feature.give.messages.ENGiveMessages;
 import com.eternalcode.core.feature.godmode.messages.ENGodModeMessages;
 import com.eternalcode.core.feature.heal.messages.ENHealMessages;
 import com.eternalcode.core.feature.home.messages.ENHomeMessages;
-import com.eternalcode.core.feature.ignore.messages.ENIgnoreMessages;
 import com.eternalcode.core.feature.itemedit.messages.ENItemEditMessages;
 import com.eternalcode.core.feature.jail.messages.ENJailMessages;
 import com.eternalcode.core.feature.joinmessage.messages.ENJoinMessage;
@@ -164,9 +163,6 @@ public class ENTranslation extends AbstractTranslation {
 
     @Comment("# AFK")
     public ENAfkMessages afk = new ENAfkMessages();
-
-    @Comment("# Ignore")
-    public ENIgnoreMessages ignore = new ENIgnoreMessages();
 
     @Comment("# Teleportation")
     public ENTeleportMessages teleport = new ENTeleportMessages();

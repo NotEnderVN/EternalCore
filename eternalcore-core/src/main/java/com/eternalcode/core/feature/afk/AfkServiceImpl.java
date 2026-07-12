@@ -124,9 +124,14 @@ class AfkServiceImpl implements AfkService {
             return;
         }
 
-        this.noticeService.create()
-            .onlinePlayers()
-            .player(playerUniqueId)
+        com.eternalcode.core.notice.EternalCoreBroadcast<com.eternalcode.core.viewer.Viewer, com.eternalcode.core.translation.Translation, ?> noticeBuilder = this.noticeService.create();
+        if (this.afkSettings.afkSelfMessagesOnly()) {
+            noticeBuilder.player(playerUniqueId);
+        } else {
+            noticeBuilder.onlinePlayers().player(playerUniqueId);
+        }
+
+        noticeBuilder
             .notice(translation -> afk ? translation.afk().afkOn() : translation.afk().afkOff())
             .placeholder("{PLAYER}", player.getName())
             .send();

@@ -30,7 +30,6 @@ import com.eternalcode.core.feature.give.messages.PLGiveMessages;
 import com.eternalcode.core.feature.godmode.messages.PLGodModeMessages;
 import com.eternalcode.core.feature.heal.messages.PLHealMessages;
 import com.eternalcode.core.feature.home.messages.PLHomeMessages;
-import com.eternalcode.core.feature.ignore.messages.PLIgnoreMessages;
 import com.eternalcode.core.feature.itemedit.messages.PLItemEditMessages;
 import com.eternalcode.core.feature.jail.messages.PLJailMessages;
 import com.eternalcode.core.feature.joinmessage.messages.PLJoinMessage;
@@ -168,9 +167,6 @@ public class PLTranslation extends AbstractTranslation {
 
     @Comment("# AFK")
     public PLAfkMessages afk = new PLAfkMessages();
-
-    @Comment("# Ignorowanie graczy")
-    public PLIgnoreMessages ignore = new PLIgnoreMessages();
 
     @Comment("# Teleportacja")
     public PLTeleportMessages teleport = new PLTeleportMessages();
