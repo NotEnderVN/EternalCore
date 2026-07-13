@@ -5,6 +5,5 @@ import com.eternalcode.multification.notice.Notice;
 public interface SudoMessages {
     Notice sudoMessageSpy();
     Notice sudoMessage();
-    Notice sudoChatMessageSpy();
     Notice sudoChatMessage();
 }

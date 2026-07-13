@@ -59,7 +59,13 @@ class SudoCommand {
     @DescriptionDocs(description = "Force player to send a chat message", arguments = "<player> <message>")
     void chat(@Sender Viewer viewer, @Arg Player target, @Join String message) {
         target.chat(message);
-        this.sendSudoChatSpy(viewer, target, message);
+        this.noticeService.create()
+            .notice(translation -> translation.sudo().sudoChatMessage())
+            .placeholder("{MESSAGE}", message)
+            .placeholder("{PLAYER}", viewer.getName())
+            .placeholder("{TARGET}", target.getName())
+            .viewer(viewer)
+            .send();
     }
 
     private void sendSudoSpy(Viewer viewer, CommandSender target, String command) {
@@ -76,26 +82,6 @@ class SudoCommand {
             .forEach(player -> this.noticeService.create()
                 .notice(translation -> translation.sudo().sudoMessageSpy())
                 .placeholder("{COMMAND}", command)
-                .placeholder("{PLAYER}", viewer.getName())
-                .placeholder("{TARGET}", target.getName())
-                .player(player.getUniqueId())
-                .send());
-    }
-
-    private void sendSudoChatSpy(Viewer viewer, Player target, String message) {
-        this.noticeService.create()
-            .notice(translation -> translation.sudo().sudoChatMessage())
-            .placeholder("{MESSAGE}", message)
-            .placeholder("{PLAYER}", viewer.getName())
-            .placeholder("{TARGET}", target.getName())
-            .viewer(viewer)
-            .send();
-
-        this.server.getOnlinePlayers().stream()
-            .filter(player -> player.hasPermission(SUDO_SPY))
-            .forEach(player -> this.noticeService.create()
-                .notice(translation -> translation.sudo().sudoChatMessageSpy())
-                .placeholder("{MESSAGE}", message)
                 .placeholder("{PLAYER}", viewer.getName())
                 .placeholder("{TARGET}", target.getName())
                 .player(player.getUniqueId())
