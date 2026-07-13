@@ -1,7 +1,6 @@
 package com.eternalcode.core.feature.joinmessage;
 
 import com.eternalcode.commons.RandomElementUtil;
-import com.eternalcode.core.feature.vanish.VanishService;
 import com.eternalcode.core.injector.annotations.Inject;
 import com.eternalcode.core.injector.annotations.component.Controller;
 import com.eternalcode.core.notice.NoticeService;
@@ -17,24 +16,17 @@ class PlayerJoinMessageController implements Listener {
     private static final String EMPTY_MESSAGE = null;
 
     private final NoticeService noticeService;
-    private final VanishService vanishService;
     private final JoinQuitSettings joinQuitSettings;
 
     @Inject
-    PlayerJoinMessageController(NoticeService noticeService, VanishService vanishService, JoinQuitSettings joinQuitSettings) {
+    PlayerJoinMessageController(NoticeService noticeService, JoinQuitSettings joinQuitSettings) {
         this.noticeService = noticeService;
-        this.vanishService = vanishService;
         this.joinQuitSettings = joinQuitSettings;
     }
 
     @EventHandler
     void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-
-        if (this.vanishService.isVanished(player)) {
-            event.setJoinMessage(EMPTY_MESSAGE);
-            return;
-        }
 
         event.setJoinMessage(EMPTY_MESSAGE);
 

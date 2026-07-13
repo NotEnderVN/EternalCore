@@ -1,7 +1,5 @@
 package com.eternalcode.core.litecommand.argument;
 
-import com.eternalcode.core.feature.vanish.VanishPermissionConstant;
-import com.eternalcode.core.feature.vanish.VanishService;
 import com.eternalcode.core.injector.annotations.Inject;
 import com.eternalcode.core.injector.annotations.lite.LiteArgument;
 import com.eternalcode.core.translation.Translation;
@@ -16,21 +14,17 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @LiteArgument(type = Player.class)
-
 public class PlayerArgument extends AbstractViewerArgument<Player> {
 
     private final Server server;
-    private final VanishService vanishService;
 
     @Inject
     public PlayerArgument(
         TranslationManager translationManager,
-        Server server,
-        VanishService vanishService
+        Server server
     ) {
         super(translationManager);
         this.server = server;
-        this.vanishService = vanishService;
     }
 
     @Override
@@ -38,10 +32,6 @@ public class PlayerArgument extends AbstractViewerArgument<Player> {
         Player target = this.server.getPlayerExact(argument);
 
         if (target == null) {
-            return ParseResult.failure(translation.argument().offlinePlayer());
-        }
-
-        if (this.vanishService.isVanished(target) && !this.canSeeVanished(invocation.sender())) {
             return ParseResult.failure(translation.argument().offlinePlayer());
         }
 
@@ -54,21 +44,8 @@ public class PlayerArgument extends AbstractViewerArgument<Player> {
         Argument<Player> argument,
         SuggestionContext context
     ) {
-        CommandSender sender = invocation.sender();
         return this.server.getOnlinePlayers().stream()
-            .filter(player -> canSee(sender, player))
             .map(Player::getName)
             .collect(SuggestionResult.collector());
-    }
-
-    private boolean canSee(CommandSender sender, Player player) {
-        if (this.canSeeVanished(sender)) {
-            return true;
-        }
-        return !this.vanishService.isVanished(player.getUniqueId());
-    }
-
-    private boolean canSeeVanished(CommandSender sender) {
-        return sender.hasPermission(VanishPermissionConstant.VANISH_SEE_PERMISSION);
     }
 }

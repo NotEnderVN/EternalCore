@@ -3,7 +3,6 @@ package com.eternalcode.core.feature.quitmessage;
 import com.eternalcode.commons.RandomElementUtil;
 import com.eternalcode.core.feature.joinmessage.JoinQuitMessageEntry;
 import com.eternalcode.core.feature.joinmessage.JoinQuitSettings;
-import com.eternalcode.core.feature.vanish.VanishService;
 import com.eternalcode.core.injector.annotations.Inject;
 import com.eternalcode.core.injector.annotations.component.Controller;
 import com.eternalcode.core.notice.NoticeService;
@@ -19,24 +18,17 @@ class PlayerQuitMessageController implements Listener {
     private static final String EMPTY_MESSAGE = null;
 
     private final NoticeService noticeService;
-    private final VanishService vanishService;
     private final JoinQuitSettings joinQuitSettings;
 
     @Inject
-    PlayerQuitMessageController(NoticeService noticeService, VanishService vanishService, JoinQuitSettings joinQuitSettings) {
+    PlayerQuitMessageController(NoticeService noticeService, JoinQuitSettings joinQuitSettings) {
         this.noticeService = noticeService;
-        this.vanishService = vanishService;
         this.joinQuitSettings = joinQuitSettings;
     }
 
     @EventHandler
     void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-
-        if (this.vanishService.isVanished(player)) {
-            event.setQuitMessage(EMPTY_MESSAGE);
-            return;
-        }
 
         event.setQuitMessage(EMPTY_MESSAGE);
 

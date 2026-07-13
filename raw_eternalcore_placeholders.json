@@ -57,7 +57,7 @@
   },
   {
     "name": "%eternalcore_online%",
-    "description": "Returns the number of online players who are not vanished",
+    "description": "Returns the number of online players",
     "returnType": "int",
     "category": "General",
     "requiresPlayer": false

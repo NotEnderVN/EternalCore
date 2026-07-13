@@ -55,7 +55,6 @@ import com.eternalcode.core.feature.teleportoffline.PLTeleportOfflineMessages;
 import com.eternalcode.core.feature.teleportrandomplayer.messages.PLTeleportToRandomPlayerMessages;
 import com.eternalcode.core.feature.teleportrequest.messages.PLTeleportRequestMessages;
 import com.eternalcode.core.feature.time.messages.PLTimeAndWeatherMessages;
-import com.eternalcode.core.feature.vanish.messages.PLVanishMessages;
 import com.eternalcode.core.feature.warp.messages.PLWarpMessages;
 import com.eternalcode.core.feature.whois.PLWhoIsMessages;
 import com.eternalcode.core.litecommand.argument.messages.PLArgumentMessages;
@@ -215,9 +214,6 @@ public class PLTranslation extends AbstractTranslation {
 
     @Comment("# Zamrażanie graczy")
     public PLFreezeMessages freeze = new PLFreezeMessages();
-
-    @Comment("# Tryb niewidoczności")
-    public PLVanishMessages vanish = new PLVanishMessages();
 
     @Comment("# Tryb gry")
     public PLGameModeMessages gamemode = new PLGameModeMessages();

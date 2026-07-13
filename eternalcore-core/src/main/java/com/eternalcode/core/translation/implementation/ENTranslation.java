@@ -47,7 +47,6 @@ import com.eternalcode.core.feature.teleportoffline.ENTeleportOfflineMessages;
 import com.eternalcode.core.feature.teleportrandomplayer.messages.ENTeleportToRandomPlayerMessages;
 import com.eternalcode.core.feature.teleportrequest.messages.ENTeleportRequestMessages;
 import com.eternalcode.core.feature.time.messages.ENTimeAndWeatherMessages;
-import com.eternalcode.core.feature.vanish.messages.ENVanishMessages;
 import com.eternalcode.core.feature.warp.messages.ENWarpMessages;
 import com.eternalcode.core.feature.whois.ENWhoIsMessages;
 import com.eternalcode.core.litecommand.argument.messages.ENArgumentMessages;
@@ -211,9 +210,6 @@ public class ENTranslation extends AbstractTranslation {
 
     @Comment("# Freeze")
     public ENFreezeMessages freeze = new ENFreezeMessages();
-
-    @Comment("# Vanish")
-    public ENVanishMessages vanish = new ENVanishMessages();
 
     @Comment("# Game mode")
     public ENGameModeMessages gamemode = new ENGameModeMessages();

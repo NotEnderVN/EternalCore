@@ -1,7 +1,6 @@
 package com.eternalcode.core.feature.onlineplayers;
 
 import com.eternalcode.annotations.scan.command.DescriptionDocs;
-import com.eternalcode.core.feature.vanish.VanishService;
 import com.eternalcode.core.injector.annotations.Inject;
 import com.eternalcode.core.notice.NoticeService;
 import com.eternalcode.core.viewer.Viewer;
@@ -16,22 +15,18 @@ import org.bukkit.Server;
 class OnlinePlayerCountCommand {
 
     private final NoticeService noticeService;
-    private final VanishService vanishService;
     private final Server server;
 
     @Inject
-    OnlinePlayerCountCommand(NoticeService noticeService, VanishService vanishService, Server server) {
+    OnlinePlayerCountCommand(NoticeService noticeService, Server server) {
         this.noticeService = noticeService;
-        this.vanishService = vanishService;
         this.server = server;
     }
 
     @Execute
     @DescriptionDocs(description = "Shows online players count")
     void execute(@Sender Viewer viewer) {
-        long visiblePlayerCount = this.server.getOnlinePlayers().stream()
-            .filter(player -> !this.vanishService.isVanished(player))
-            .count();
+        long visiblePlayerCount = this.server.getOnlinePlayers().size();
 
         this.noticeService
             .create()

@@ -1,6 +1,5 @@
 package com.eternalcode.core.feature.afk;
 
-import com.eternalcode.core.feature.vanish.VanishService;
 import com.eternalcode.core.injector.annotations.Inject;
 import com.eternalcode.core.injector.annotations.component.Task;
 import java.util.UUID;
@@ -14,7 +13,6 @@ class AfkTask implements Runnable {
     private final AfkService afkService;
     private final AfkServiceImpl afkServiceImpl;
     private final AfkSettings afkSettings;
-    private final VanishService vanishService;
     private final Server server;
 
     @Inject
@@ -22,13 +20,11 @@ class AfkTask implements Runnable {
         AfkService afkService,
         AfkServiceImpl afkServiceImpl,
         AfkSettings afkSettings,
-        VanishService vanishService,
         Server server
     ) {
         this.afkService = afkService;
         this.afkServiceImpl = afkServiceImpl;
         this.afkSettings = afkSettings;
-        this.vanishService = vanishService;
         this.server = server;
     }
 
@@ -45,7 +41,7 @@ class AfkTask implements Runnable {
         for (Player player : this.server.getOnlinePlayers()) {
             UUID playerUuid = player.getUniqueId();
 
-            if (this.afkService.isAfk(playerUuid) || this.vanishService.isVanished(playerUuid)) {
+            if (this.afkService.isAfk(playerUuid)) {
                 continue;
             }
 

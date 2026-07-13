@@ -18,6 +18,7 @@ public interface ArgumentMessages {
     Notice noArgument();
     Notice worldDoesntExist();
     Notice incorrectLocation();
+    Notice invalidCatType();
 
     Notice missingPlayer();
 }

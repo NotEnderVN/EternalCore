@@ -29,6 +29,7 @@ public class ENArgumentMessages extends OkaeriConfig implements ArgumentMessages
     Notice noArgument = Notice.chat("<red>✘ <dark_red>This argument doesn't exist");
     Notice worldDoesntExist = Notice.chat("<red>✘ <dark_red>World <red>{WORLD} <dark_red>doesn't exist!");
     Notice incorrectLocation = Notice.chat("<red>✘ <dark_red>Incorrect location format! <red>({LOCATION})");
+    Notice invalidCatType = Notice.chat("<red>✘ <dark_red>This cat type doesn't exist");
 
     public Notice missingPlayer = Notice.chat("<red>✘ <dark_red>Couldn't find player!");
 }

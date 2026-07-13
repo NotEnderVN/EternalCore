@@ -3,7 +3,6 @@ package com.eternalcode.core.placeholder;
 import com.eternalcode.annotations.scan.placeholder.PlaceholdersDocs;
 import com.eternalcode.annotations.scan.placeholder.PlaceholdersDocs.Entry;
 import com.eternalcode.annotations.scan.placeholder.PlaceholdersDocs.Entry.Type;
-import com.eternalcode.core.feature.vanish.VanishService;
 import com.eternalcode.core.injector.annotations.component.Controller;
 import com.eternalcode.core.publish.event.EternalInitializeEvent;
 import com.eternalcode.core.publish.Subscribe;
@@ -13,7 +12,7 @@ import org.bukkit.Server;
     placeholders = {
         @Entry(
             name = "online",
-            description = "Returns the number of online players who are not vanished",
+            description = "Returns the number of online players",
             returnType = Type.INT,
             requiresPlayer = false
         )
@@ -30,12 +29,9 @@ class PlaceholdersSetup {
     }
 
     @Subscribe(EternalInitializeEvent.class)
-    void setUpPlaceholders(PlaceholderRegistry placeholders, Server server, VanishService vanishService) {
+    void setUpPlaceholders(PlaceholderRegistry placeholders, Server server) {
         placeholders.register(Placeholder.ofLong("online", player ->
-            server.getOnlinePlayers()
-                .stream()
-                .filter(onlinePlayer -> !vanishService.isVanished(onlinePlayer))
-                .count()
+            (long) server.getOnlinePlayers().size()
             )
         );
     }

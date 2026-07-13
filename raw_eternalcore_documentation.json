@@ -252,19 +252,6 @@
       "name": "catboy ",
       "aliases": [],
       "permissions": [
-        "eternalcore.catboy"
-      ],
-      "descriptions": [
-        "Mark yourself as a catboy."
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
-      "name": "catboy ",
-      "aliases": [],
-      "permissions": [
         "eternalcore.catboy",
         "eternalcore.catboy.others"
       ],
@@ -273,6 +260,19 @@
       ],
       "arguments": [
         "<player>"
+      ]
+    },
+    {
+      "name": "catboy ",
+      "aliases": [],
+      "permissions": [
+        "eternalcore.catboy"
+      ],
+      "descriptions": [
+        "Mark yourself as a catboy."
+      ],
+      "arguments": [
+        ""
       ]
     },
     {
@@ -2194,33 +2194,6 @@
       "arguments": []
     },
     {
-      "name": "vanish ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.vanish"
-      ],
-      "descriptions": [
-        "Toggle your vanish state"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
-      "name": "vanish ",
-      "aliases": [],
-      "permissions": [
-        "eternalcore.vanish",
-        "eternalcore.vanish.other"
-      ],
-      "descriptions": [
-        "Toggle vanish state for another player"
-      ],
-      "arguments": [
-        ""
-      ]
-    },
-    {
       "name": "warp",
       "aliases": [],
       "permissions": [
@@ -2429,24 +2402,6 @@
       ],
       "descriptions": [
         "Allows the player to use powertools, which are items that execute commands when left/right-clicked."
-      ]
-    },
-    {
-      "name": "Vanish Join",
-      "permissions": [
-        "eternalcore.vanish.join"
-      ],
-      "descriptions": [
-        "Allows the player to join as vanished player."
-      ]
-    },
-    {
-      "name": "Vanish See",
-      "permissions": [
-        "eternalcore.vanish.see"
-      ],
-      "descriptions": [
-        "Allows the player to see vanished players."
       ]
     },
     {

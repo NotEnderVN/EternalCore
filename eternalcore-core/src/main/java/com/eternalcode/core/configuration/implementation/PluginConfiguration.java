@@ -41,8 +41,6 @@ import com.eternalcode.core.feature.teleportrandomplayer.TeleportToRandomPlayerC
 import com.eternalcode.core.feature.teleportrandomplayer.TeleportToRandomPlayerSettings;
 import com.eternalcode.core.feature.teleportrequest.TeleportRequestConfig;
 import com.eternalcode.core.feature.teleportrequest.TeleportRequestSettings;
-import com.eternalcode.core.feature.vanish.VanishConfig;
-import com.eternalcode.core.feature.vanish.VanishSettings;
 import com.eternalcode.core.feature.warp.WarpConfig;
 import com.eternalcode.core.feature.warp.WarpSettings;
 import com.eternalcode.core.injector.annotations.Bean;
@@ -209,12 +207,6 @@ public class PluginConfiguration extends AbstractConfigurationFile {
     @Comment("# Lightning Configuration")
     @Comment("# Settings for lightning strike effects")
     LightningConfig lightning = new LightningConfig();
-
-    @Bean(proxied = VanishSettings.class)
-    @Comment("")
-    @Comment("# Vanish Configuration")
-    @Comment("# Settings responsible for player vanish functionality")
-    VanishConfig vanish = new VanishConfig();
 
     @Bean(proxied = BackSettings.class)
     @Comment("")
